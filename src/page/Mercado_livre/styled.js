@@ -1,57 +1,52 @@
 import styled from "styled-components";
 
 export const Form = styled.div`
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #f4f4f4;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+  width: 300px;
+  padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 `;
 
 export const Button = styled.button`
-  background: #007bff;
+  padding: 8px 15px;
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s;
-
-  &:hover {
-    background: #0056b3;
-  }
+  border-radius: 5px;
 `;
 
 export const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
-  margin-top: 20px;
+  width: 100%;
+  
 `;
 
 export const Card = styled.div`
-  background: white;
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 250px;
-  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  width: 100%;
 `;
 
 export const Image = styled.img`
-  max-width: 30%;
-  border-radius: 8px;
-  margin-bottom: 10px;
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
 `;

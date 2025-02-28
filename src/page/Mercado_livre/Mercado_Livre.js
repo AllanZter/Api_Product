@@ -8,6 +8,9 @@ export const Mercado = () => {
     price: "",
     available_quantity: "",
     image: "",
+    height:"",
+    width:"",
+    length:"",
   });
   const [editIndex, setEditIndex] = useState(null);
 
@@ -31,7 +34,7 @@ export const Mercado = () => {
       .then((res) => res.json())
       .then((data) => {
         setProdutos(data.produtos);
-        setNovoProduto({ title: "", price: "", available_quantity: "", image: "" });
+        setNovoProduto({ title: "", price: "", available_quantity: "", image: "",height:"",width:"",length:"" });
         setEditIndex(null);
         alert("Produto salvo com sucesso!");
       });
@@ -55,18 +58,21 @@ export const Mercado = () => {
       <Input type="number" placeholder="Preço" value={novoProduto.price} onChange={(e) => setNovoProduto({ ...novoProduto, price: e.target.value })} />
       <Input type="number" placeholder="Quantidade" value={novoProduto.available_quantity} onChange={(e) => setNovoProduto({ ...novoProduto, available_quantity: e.target.value })} />
       <Input type="text" placeholder="URL da Imagem" value={novoProduto.image} onChange={(e) => setNovoProduto({ ...novoProduto, image: e.target.value })} />
+      <Input type="number" placeholder="Altura" value={novoProduto.height} onChange={(e) => setNovoProduto({ ...novoProduto, height: e.target.value })} />
+      <Input type="number" placeholder="Largura" value={novoProduto.width} onChange={(e) => setNovoProduto({ ...novoProduto, width: e.target.value })} />
+      <Input type="number" placeholder="Comprimento" value={novoProduto.length} onChange={(e) => setNovoProduto({ ...novoProduto, length: e.target.value })} />
       <Button onClick={cadastrarProduto}>{editIndex !== null ? "Salvar Edição" : "Cadastrar Produto"}</Button>
 
       <h2>Produtos Cadastrados</h2>
       <CardContainer>
         {produtos.map((produto, index) => (
           <Card key={index}>
-            <Image src={produto.image} alt={produto.title} />
-            <h3>{produto.title}</h3>
-            <p>Preço: R$ {produto.price}</p>
-            <p>Quantidade: {produto.available_quantity}</p>
-            <Button onClick={() => editarProduto(index)}>Editar</Button>
-            <Button onClick={() => excluirProduto(index)}>Excluir</Button>
+            <span><Image src={produto.image} alt={produto.title} /></span>
+            <span><h3>{produto.title}</h3></span>
+            <span>R$ {produto.price}</span>
+            <span>Quantidade: {produto.available_quantity}</span>
+            <span><Button onClick={() => editarProduto(index)}>Editar</Button></span>
+            <span id="EX"><Button onClick={() => excluirProduto(index)}>Excluir</Button></span>
           </Card>
         ))}
       </CardContainer>
